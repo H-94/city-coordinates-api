@@ -1,0 +1,10 @@
+{
+  "output": {
+    "format":"geojson"
+  },
+  "node": {
+    "attributes":["name","place"],
+    "include":["name","place"],
+    "exclude_other":true
+  }
+}
