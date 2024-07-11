@@ -21,5 +21,5 @@
 - **Example:**
 
     ```sh
-    curl "http://localhost:8000/coordinates?latitude=35.7397918&longitude=-86.1655473"
+    curl "http://localhost:8000/coordinates?latitude=35.5175&longitude=-86.6904"
     ```
