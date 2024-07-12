@@ -1,48 +1,36 @@
-# Ignore node_modules directory
 node_modules/
 npm-debug.log*
 
-# Ignore log files
 *.log
 
-# Ignore OS generated files
 .DS_Store
 Thumbs.db
 
-# Ignore IDE-specific files
 .vscode/
 .idea/
 *.sublime-workspace
 *.sublime-project
 
-# Ignore sensitive files
 .env
 .env.local
 .env.*.local
 
-# Ignore data directories and files
 tools/data/filtered-cities/
 tools/data/states/
 
-# Ignore build directories
 build/
 dist/
 
-# Ignore temporary files
 *.tmp
 *.temp
 
-# Ignore lock files
 package-lock.json
 yarn.lock
 
-# Ignore compiled JavaScript files
 *.js.map
 
-# Ignore backup files
 *.bak
 *.old
 
-# Ignore coverage reports
 coverage/
 *.lcov
