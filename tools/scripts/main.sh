@@ -16,7 +16,7 @@ echo "Data processing completed."
 
 echo "MongoDB is ready, proceeding with data import..."
 
-mongoimport --host weather-db --username user --password user --authenticationDatabase admin \
+mongoimport --host "city-coordinates-db" --username user --password user --authenticationDatabase admin \
   --db us --collection cities --type json --file /data/all_cities_unique.json --jsonArray
 
 echo "Data import completed."

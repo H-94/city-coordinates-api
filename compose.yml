@@ -12,22 +12,23 @@ services:
     build:
       context: ./tools
       dockerfile: Dockerfile
-    image: city-search-tools
+    image: city-coordinates-tools
     container_name: city-coordinates-tools
     volumes:
       - ./tools/data:/data
     depends_on:
       - city-coordinates-db
 
-  city-coordinates-api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-    image: weather-api
-    container_name: city-coordinates-api
-    environment:
-      - MONGO_URI=mongodb://user:user@geomongo:27017/us?authSource=admin
-    ports:
-      - "8000:8000"
-    depends_on:
-      - city-coordinates-db
+  # city-coordinates-api:
+  #   build:
+  #     context: ./api
+  #     dockerfile: Dockerfile
+  #   image: city-coordinates-api
+  #   container_name: city-coordinates-api
+  #   environment:
+  #     - MONGO_URI=mongodb://user:user@geomongo:27017/us?authSource=admin
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - city-coordinates-db
+

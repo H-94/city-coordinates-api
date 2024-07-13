@@ -38,17 +38,22 @@ app.get("/search",async(req,res)=>{
 
 app.get("/coordinates",async(req,res)=>{
   try{
-    const {latitude,longitude} = req.query
-    if (!latitude || !longitude) return res.status(400).send("Latitude and longitude are required")
+    const {latitude,longitude } = req.query;
+    if(!latitude || !longitude){return res.status(400).send("Latitude and longitude are required")}
 
-    const results = await Cities.find({
-      geometry:{
-        $near:{
-          $geometry:{type:"Point",coordinates:[parseFloat(longitude), parseFloat(latitude)]},
-          $maxDistance: 50000
+    const results = await Cities.aggregate([
+      {
+        $geoNear:{
+          near:{
+            type:"Point",
+            coordinates:[parseFloat(longitude),parseFloat(latitude)]
+          },
+          distanceField:"distance",
+          maxDistance:50000,
+          spherical:true
         }
-      }
-    }).limit(1)
+      },{$limit:1}
+    ])
 
     if(results.length === 0){res.status(404).send("No cities found near the provided coordinates")}
     else{res.json(results[0])}
